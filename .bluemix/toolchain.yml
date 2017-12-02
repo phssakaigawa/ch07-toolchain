@@ -25,8 +25,8 @@ services:
   bmxug-winter-2017-container-repo:
     service_id: hostedgit
     parameters:
-      repo_name: 'hello-containers-{{timestamp}}'
-      repo_url: 'https://github.com/phssakaigawa/hello-containers'
+      repo_name: 'bmxug-winter-2017-containers-{{timestamp}}'
+      repo_url: 'https://github.com/phssakaigawa/bmxug-winter-2017-containers'
       type: clone
       has_issues: true
       enable_traceability: true

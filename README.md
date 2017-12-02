@@ -14,7 +14,7 @@ Any code change to the Git repo will automatically be built, validated and deplo
 ![Icon](./.bluemix/toolchain.png)
 
 ### To get started, click this button:
-[![Deploy To Bluemix](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/phssakaigawa/bmxug-winter-2017-toolchain/)
+[![Deploy To Bluemix](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/phssakaigawa/bmxug-winter-2017-toolchain)
 
 ---
 ### Learn more 
