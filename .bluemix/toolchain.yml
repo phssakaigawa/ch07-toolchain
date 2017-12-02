@@ -1,0 +1,59 @@
+version: '2'
+messages:
+  $i18n: locales.yml
+template:
+  name:
+    $ref: "#/messages/template.name"
+  description:
+    $ref: "#/messages/template.description"
+  header: '![](toolchain.svg?localize)'
+  icon: secure-lock-kubernetes.svg
+  required:
+    - bmxug-winter-2017-container-build
+    - bmxug-winter-2017-container-repo
+  info:
+    git url: >-
+      [https://github.com/phssakaigawa/bmxug-winter-2017-toolchain](https://github.com/phssakaigawa/secure-kube-toolchain)
+    git branch: >-
+      [master](https://github.com/phssakaigawa/bmxug-winter-2017-toolchain/tree/master)
+toolchain:
+  name: 'secure-kubernetes-toolchain-{{timestamp}}'
+  template:
+    getting_started:
+      $ref: "#/messages/template.gettingStarted" 
+services:
+  bmxug-winter-2017-container-repo:
+    service_id: hostedgit
+    parameters:
+      repo_name: 'hello-containers-{{timestamp}}'
+      repo_url: 'https://github.com/phssakaigawa/hello-containers'
+      type: clone
+      has_issues: true
+      enable_traceability: true
+  bmxug-winter-2017-container-build:
+    service_id: pipeline
+    parameters:
+      services:
+        - bmxug-winter-2017-container-repo
+      name: 'bmxug-winter-2017-container-{{timestamp}}'
+      ui-pipeline: true
+      configuration:
+        content:
+          $text: pipeline.yml
+        env:
+          GIT_REPO: bmxug-winter-2017-container-repo
+          CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
+          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+          REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
+          PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'
+        execute: true
+  webide:
+    service_id: orion
+form:
+  pipeline:
+    parameters:
+      app-name: '{{services.bmxug-winter-2017-container-repo.parameters.repo_name}}'
+    schema:
+      $ref: deploy.json
