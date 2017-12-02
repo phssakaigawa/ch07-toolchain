@@ -13,11 +13,11 @@ template:
     - bmxug-winter-2017-container-repo
   info:
     git url: >-
-      [https://github.com/phssakaigawa/bmxug-winter-2017-toolchain](https://github.com/phssakaigawa/secure-kube-toolchain)
+      [https://github.com/phssakaigawa/bmxug-winter-2017-toolchain](https://github.com/phssakaigawa/bmxug-winter-2017-toolchain)
     git branch: >-
       [master](https://github.com/phssakaigawa/bmxug-winter-2017-toolchain/tree/master)
 toolchain:
-  name: 'secure-kubernetes-toolchain-{{timestamp}}'
+  name: 'bmxug-winter-2017-toolchain-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
@@ -25,8 +25,8 @@ services:
   bmxug-winter-2017-container-repo:
     service_id: hostedgit
     parameters:
-      repo_name: 'bmxug-winter-2017-containers-{{timestamp}}'
-      repo_url: 'https://github.com/phssakaigawa/bmxug-winter-2017-containers'
+      repo_name: 'bmxug-winter-2017-container-{{timestamp}}'
+      repo_url: 'https://github.com/phssakaigawa/bmxug-winter-2017-container'
       type: clone
       has_issues: true
       enable_traceability: true
