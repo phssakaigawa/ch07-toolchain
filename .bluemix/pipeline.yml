@@ -19,7 +19,7 @@ stages:
     image_name: ${CF_APP_NAME}
     script: |
       #!/bin/bash
-      set -x
+      #set -x
 
       echo -e "Build environment variables:"
       echo "REGISTRY_URL=${REGISTRY_URL}"
@@ -42,7 +42,7 @@ stages:
           echo "Dockerfile not found"
           exit 1
       fi
-      bx target --cf
+      
       echo "=========================================================="
       echo "Checking registry current plan and quota"
       bx cr plan
