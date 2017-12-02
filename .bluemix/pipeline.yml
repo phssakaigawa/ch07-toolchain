@@ -19,7 +19,7 @@ stages:
     image_name: ${CF_APP_NAME}
     script: |
       #!/bin/bash
-      #set -x
+      set -x
 
       echo -e "Build environment variables:"
       echo "REGISTRY_URL=${REGISTRY_URL}"
@@ -28,7 +28,6 @@ stages:
       echo "BUILD_NUMBER=${BUILD_NUMBER}"
       echo "ARCHIVE_DIR=${ARCHIVE_DIR}"
 
-      bx target --cf
       # Learn more about the available environment variables at:
       # https://console.bluemix.net/docs/services/ContinuousDelivery/pipeline_deploy_var.html#deliverypipeline_environment
 
@@ -43,7 +42,7 @@ stages:
           echo "Dockerfile not found"
           exit 1
       fi
-
+      bx target --cf
       echo "=========================================================="
       echo "Checking registry current plan and quota"
       bx cr plan
