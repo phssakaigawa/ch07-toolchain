@@ -9,39 +9,39 @@ template:
   header: '![](toolchain.svg?localize)'
   icon: secure-lock-kubernetes.svg
   required:
-    - bmxug-winter-2017-container-build
-    - bmxug-winter-2017-container-repo
+    - ch07-app-build
+    - ch07-app-repo
   info:
     git url: >-
-      [https://github.com/phssakaigawa/bmxug-winter-2017-toolchain](https://github.com/phssakaigawa/bmxug-winter-2017-toolchain)
+      [https://github.com/phssakaigawa/ch07-toolchain](https://github.com/phssakaigawa/ch07-toolchain)
     git branch: >-
-      [master](https://github.com/phssakaigawa/bmxug-winter-2017-toolchain/tree/master)
+      [master](https://github.com/phssakaigawa/ch07-toolchain/tree/master)
 toolchain:
-  name: 'bmxug-winter-2017-toolchain-{{timestamp}}'
+  name: 'ch07-toolchain-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
 services:
-  bmxug-winter-2017-container-repo:
+  ch07-app-repo:
     service_id: hostedgit
     parameters:
-      repo_name: 'bmxug-winter-2017-container-{{timestamp}}'
-      repo_url: 'https://github.com/phssakaigawa/bmxug-winter-2017-container'
+      repo_name: 'ch07-app-{{timestamp}}'
+      repo_url: 'https://github.com/phssakaigawa/ch07-app'
       type: clone
       has_issues: true
       enable_traceability: true
-  bmxug-winter-2017-container-build:
+  ch07-app-build:
     service_id: pipeline
     parameters:
       services:
-        - bmxug-winter-2017-container-repo
-      name: 'bmxug-winter-2017-container-{{timestamp}}'
+        - ch07-app-repo
+      name: 'ch07-app-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
           $text: pipeline.yml
         env:
-          GIT_REPO: bmxug-winter-2017-container-repo
+          GIT_REPO: ch07-app-repo
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
@@ -54,6 +54,6 @@ services:
 form:
   pipeline:
     parameters:
-      app-name: '{{services.bmxug-winter-2017-container-repo.parameters.repo_name}}'
+      app-name: '{{services.ch07-app-repo.parameters.repo_name}}'
     schema:
       $ref: deploy.json
