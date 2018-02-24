@@ -1,5 +1,18 @@
-# bmxug-winter-2017-toolchain
-[IBM Cloud (Bluemix) 冬の大勉強会](https://bmxug.connpass.com/event/66949/) / Kubernetes on IBM Cloud + DevOps CI で使用したサンプルのToolChainです
+# コンテナ・ベース・オーケストレーション Docker/Kubernetesで作るクラウド時代のシステム基盤
+## ch07 Kubernetes on IBM Container Service ToolChainサンプル
+
+本レポジトリは、Github open-toolchainに公開されている[Continuously deliver a secure Docker app to a Bluemix Kubernetes Cluster](https://github.com/open-toolchain/secure-kube-toolchain)から、
+内容をカスタマイズしたレポジトリです。
+
+翔泳社から発行の[コンテナ・ベース・オーケストレーション Docker/Kubernetesで作るクラウド時代のシステム基盤](https://www.shoeisha.co.jp/book/detail/9784798155371)、
+第7章 Kubernetes on IBM Container ServiceでIBM DevOps ToolChainのサンプル用にカスタマイズ公開されているレポジトリとなります。
+
+[![BookImg](./img/bookimg.png)](https://www.shoeisha.co.jp/book/detail/9784798155371)
+
+`ご注意`本レポジトリのToolChainデモにはIBM Cloudの従量料金(pay-as-you-go)アカウントとIBM Cloud Container Serviceの標準クラスター以上のクラスタの設定が必須です
+
+### ToolChainをご自身のIBM Cloud アカウントにデプロイするには以下のCreate ToolChainボタンをクリックしてください。:
+[![Deploy To Bluemix](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/phssakaigawa/ch07-toolchain)
 
 # ![Icon](./.bluemix/secure-lock-kubernetes.png) Develop a Kubernetes app
 
