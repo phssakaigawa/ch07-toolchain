@@ -17,7 +17,7 @@ template:
     git branch: >-
       [master](https://github.com/phssakaigawa/ch07-toolchain/tree/master)
 toolchain:
-  name: 'ch07-toolchain-{{timestamp}}'
+  name: 'ch07-toolchain'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
@@ -25,7 +25,7 @@ services:
   ch07-app-repo:
     service_id: hostedgit
     parameters:
-      repo_name: 'ch07-app-{{timestamp}}'
+      repo_name: 'ch07-app'
       repo_url: 'https://github.com/phssakaigawa/ch07-app'
       type: clone
       has_issues: true
@@ -35,7 +35,7 @@ services:
     parameters:
       services:
         - ch07-app-repo
-      name: 'ch07-app-{{timestamp}}'
+      name: 'ch07-app'
       ui-pipeline: true
       configuration:
         content:
