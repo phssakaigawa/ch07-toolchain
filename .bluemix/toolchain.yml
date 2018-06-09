@@ -51,6 +51,7 @@ services:
         execute: true
   webide:
     service_id: nodered
+    noderedInstanceUri: ""
   messaging:
     service_id: slack
     $ref: slack.yml
