@@ -50,12 +50,11 @@ services:
           API_KEY: '{{form.pipeline.parameters.api-key}}'
         execute: true
   webide:
-    service_id: orion
+    service_id: nodered
   messaging:
     service_id: slack
     $ref: slack.yml
-  webide:
-    service_id: nodered
+
 form:
   pipeline:
     parameters:
