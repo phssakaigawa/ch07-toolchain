@@ -51,6 +51,11 @@ services:
         execute: true
   webide:
     service_id: orion
+  messaging:
+    service_id: slack
+    $ref: slack.yml
+  webide:
+    service_id: nodered
 form:
   pipeline:
     parameters:
