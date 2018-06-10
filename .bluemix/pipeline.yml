@@ -161,15 +161,5 @@ stages:
       echo ""
       echo "VIEW THE APPLICATION AT: http://$ip_addr:$port"
       if [[ -n "${API_TOKEN}" ]];then
-          slack_msg(){
-          cat <<EOF
-            {
-                "channel"\: "#${channel_name}",
-                "username"\: "webhookbot",
-                "text"\: "VIEW THE APPLICATION AT: http://$ip_addr:$port",
-                "icon_emoji"\: ":ghost:"
-            }
-            EOF
-            }
-          curl -X POST "${API_TOKEN}" --data "$(slack_msg)"
+          curl -X POST "${API_TOKEN}" --data '{"channel": "#${channel_name}","username": "webhookbot","text": "VIEW THE APPLICATION AT: http://$ip_addr:$port","icon_emoji": ":ghost:"}'
       fi
