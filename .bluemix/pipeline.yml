@@ -161,5 +161,5 @@ stages:
       echo ""
       echo "VIEW THE APPLICATION AT: http://$ip_addr:$port"
       #if [[ -n "${API_TOKEN}" ]];then
-         echo curl -X POST "${API_TOKEN}" --data '{"channel": "#${channel_name}","username": "webhookbot","text": "VIEW THE APPLICATION AT: http://$ip_addr:$port","icon_emoji": ":ghost:"}'
+         echo curl -X POST "${api_token}" --data '{"channel": "#${channel_name}","username": "webhookbot","text": "VIEW THE APPLICATION AT: http://$ip_addr:$port","icon_emoji": ":ghost:"}'
       #fi
