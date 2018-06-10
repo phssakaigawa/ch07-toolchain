@@ -164,10 +164,10 @@ stages:
           slack_msg(){
           cat <<EOF
             {
-                "channel": "#${channel_name}",
-                "username": "webhookbot",
-                "text": "VIEW THE APPLICATION AT: http://$ip_addr:$port",
-                "icon_emoji": ":ghost:"
+                "channel"\: "#${channel_name}",
+                "username"\: "webhookbot",
+                "text"\: "VIEW THE APPLICATION AT: http://$ip_addr:$port",
+                "icon_emoji"\: ":ghost:"
             }
             EOF
             }
